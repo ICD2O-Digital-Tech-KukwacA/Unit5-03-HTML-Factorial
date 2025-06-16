@@ -5,26 +5,25 @@
 
 "use strict"
 
-/**
-* This function displays all numbers from up to the user number */
-function numberProduct() {
-    let sum = 0
-    let numbers = ""
-    
-    // get the user number
-    let userNumFirst = parseFloat(document.getElementById('firstNumber').value)
-    let userNumSecond = parseFloat(document.getElementById('secondNumber').value)
+function numberFactorial() {
+    // Get the user's input number
+    let userNum = parseFloat(document.getElementById('userNumber').value);
 
-    for (let counter = 0; counter < userNumSecond; counter++) {
-        if(counter < (userNumSecond -1)) {
-            numbers =  numbers + userNumFirst + "+"; 
-        }
-        else {
-            numbers = numbers + userNumFirst;
-        }
-        sum = sum + userNumFirst; // Was once counter
+    // Check for negative or decimal numbers
+    if (userNum < 0 || !Number.isInteger(userNum)) {
+        document.getElementById('result').innerHTML = "Please enter an integer.";
+        return;
     }
-    
-    // return the string of numbers back to html
-    document.getElementById('result').innerHTML = numbers + " = " + sum
+
+    let result = 1;
+    let counter = 1;
+
+    // Use do...while loop to calculate factorial
+    do {
+        result = result * counter;
+        counter++;
+    } while (counter <= userNum);
+
+    // Display the result
+    document.getElementById('result').innerHTML = result;
 }
