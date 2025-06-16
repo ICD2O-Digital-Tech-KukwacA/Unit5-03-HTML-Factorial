@@ -25,5 +25,5 @@ function numberFactorial() {
     } while (counter <= userNum);
 
     // Display the result
-    document.getElementById('result').innerHTML = result;
+    document.getElementById('result').innerHTML = userNum + "!" + " = " + result;
 }
